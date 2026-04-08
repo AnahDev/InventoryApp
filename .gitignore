@@ -1,0 +1,19 @@
+#Compilacion
+
+bin/
+obj/
+
+#
+.vs/
+.vsc/
+*.user/
+
+#archivos temp
+*.log
+*.temp
+
+#archivos del sistema
+.DS_Store
+.thumbs.db
+
+
