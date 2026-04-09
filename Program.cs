@@ -40,7 +40,55 @@ if (args.Length > 0)
     }
 }
 
-MostrarBanner();
+
+
+int cantidadProducto = 0;
+decimal valorTotalInventario = 0.00m;
+bool sistemaActivo = true;
+string nombreSistema = "SGI - SISTEMA DE GESTION DE INVENTARIO";
+//decimal precio = 19.9m;
+
+Console.WriteLine("Estado del Sistema");
+Console.WriteLine($" Nombre: {nombreSistema}");
+Console.WriteLine($" Productos registrados: {cantidadProducto}");
+Console.WriteLine($" Valor Total de Inventario: {valorTotalInventario:N2}");
+Console.WriteLine($" Nombre: {nombreSistema}");
+Console.WriteLine($" Estatus de Sistema: {(sistemaActivo ? "Activo" : "Inactivo")}");
+
+
+Console.WriteLine("Ingrese un numero: ");
+string? entradaCant  = Console.ReadLine();
+
+//conversion segura TryParse
+if(int.TryParse(entradaCant, out int cantidad))
+{
+    Console.WriteLine($"Cantidad valida: {cantidad}\n");
+    cantidadProducto = cantidad;
+
+}else
+{
+    Console.WriteLine("Debe ingresar un numero entero.");
+}
+
+
+Console.WriteLine("Ingrese un precio: ");
+    string? entradaPrecio = Console.ReadLine();
+
+
+if(decimal.TryParse(entradaPrecio, out decimal precio2))
+{
+    Console.WriteLine($"Precio validado: {precio2:N2}\n");
+    valorTotalInventario = cantidadProducto * precio2;
+    Console.WriteLine($"Valor total de Invetario : ${valorTotalInventario:N2}");
+
+}
+else
+{
+    Console.WriteLine("Error: debe ingresar un numero decimal.");
+}
+
+
+//MostrarBanner();
 
 //Modo interactivo si no hay argumentos 
 Console.Write("Ingresa un comando ( o 'salir' para terminar): ");
@@ -50,7 +98,7 @@ Console.Write("Ingresa un comando ( o 'salir' para terminar): ");
 {
     Console.WriteLine("Hasta luego!");
     Environment.Exit(0);
-} 
+}
 
 
 /*
@@ -71,6 +119,15 @@ Console.WriteLine("             |--.gitkeep");
 Console.WriteLine("");
 Console.WriteLine("");
 */
+
+
+//######################################
+
+
+
+
+
+
 
 
 //######### FUNCIONES ############
