@@ -48,12 +48,54 @@ bool sistemaActivo = true;
 string nombreSistema = "SGI - SISTEMA DE GESTION DE INVENTARIO";
 //decimal precio = 19.9m;
 
+
+
 Console.WriteLine("Estado del Sistema");
 Console.WriteLine($" Nombre: {nombreSistema}");
 Console.WriteLine($" Productos registrados: {cantidadProducto}");
 Console.WriteLine($" Valor Total de Inventario: {valorTotalInventario:N2}");
 Console.WriteLine($" Nombre: {nombreSistema}");
-Console.WriteLine($" Estatus de Sistema: {(sistemaActivo ? "Activo" : "Inactivo")}");
+Console.WriteLine($" Estatus de Sistema: {(sistemaActivo ? true : false)}");
+
+//--------------------
+//loop de nulabilidad 
+
+Console.WriteLine("Comandos: Listar, Agregar, Buscar, Salir");
+Console.WriteLine();
+
+while (sistemaActivo)
+{
+    Console.WriteLine("Inventario: ");
+    string? entrada2 = Console.ReadLine();
+
+    string comando = entrada2?.Trim().ToLower() ?? "Salir";
+
+    switch (comando)
+    {
+        case "salir":
+            sistemaActivo = false;
+            Console.WriteLine("Hasta Luego");
+            break;
+
+
+        case "listar":
+            Console.WriteLine($"Productos en Inventario: {cantidadProducto}");
+            break;
+
+
+        case "":
+            break;
+
+        default:
+            Console.WriteLine($"Comando '{comando}' no reconocido");
+            Console.WriteLine($"Comandos Disponibles: Listar, Agregar, Buscar, Salir");
+            break;
+    }
+}
+
+
+
+//-----------------------
 
 
 Console.WriteLine("Ingrese un numero: ");
